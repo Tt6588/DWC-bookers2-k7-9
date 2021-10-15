@@ -32,7 +32,7 @@
                 </li>
               <% else %>
                 <a class="fas fa-home nav-linktext-light">Home</a>
-                <a class="fas fa-about nav-linktext-light">About</a>
+                  <%= link_to "About", '/home/about'  %>
                 <li>
                   <%= link_to "Sign up", new_user_registration_path %>
                 </li>
