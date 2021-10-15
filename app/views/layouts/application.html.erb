@@ -24,7 +24,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <a class="fas fa-home nav-linktext-light">Home</a>
+                <a class="fas fa-Home nav-linktext-light">Home</a>
                 <a class="fas fa-users nav-linktext-light">Users</a>
                 <a class="fas fa-books nav-linktext-light">books</a>
                 <li>
@@ -33,12 +33,8 @@
               <% else %>
                 <a class="fas fa-home nav-linktext-light">Home</a>
                   <%= link_to "About", '/home/about'  %>
-                <li>
                   <%= link_to "Sign up", new_user_registration_path %>
-                </li>
-                <li>
                   <%= link_to "Log in", new_user_session_path %>
-                </li>
               <% end %>
             </ul>
           </div>
