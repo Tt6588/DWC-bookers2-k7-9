@@ -49,13 +49,16 @@
             </tr>
           </thead>
           <tbody>
-            <td>
-              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
-              <br><%= @user.name %>
-            </td>
-            <td>
-              
-            </td>
+            <% @books.each do |book| %>
+              <td>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
+                <br><%= @user.name %>
+              </td>
+              <td><%= book.title %></td>
+              <td><%= book.body %></td>
+              <td>edit</td>
+              <td>destroy</td>
+            <% end %>
           </tbody>
         </table>
       </div>
