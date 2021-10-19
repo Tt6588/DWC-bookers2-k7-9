@@ -1,0 +1,24 @@
+<div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <td>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
+                <br><%= @user.name %>
+              </td>
+              <td><%= book.title %></td>
+              <td><%= book.body %></td>
+              <td>edit</td>
+              <td>destroy</td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
