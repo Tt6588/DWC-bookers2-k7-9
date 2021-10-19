@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(title: book_params[:title], body: book_params[:body], user_id: current_user.id)
     @book.save
-    redirect_to books_path
+    redirect_to book_path(@book.id)
 
   end
 
