@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(title: book_params[:title], body: book_params[:body], user_id: current_user.id)
     @book.save
-    redirect_to book_path(@book.id)
+    redirect_to book_path(@book.id), notice: 'You have created book successfully.'
 
   end
 
@@ -25,10 +25,13 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    redirect_to book_path(@book.id)
+    redirect_to book_path(@book.id), notice: 'You have updated book successfully.'
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to "/books"
   end
 
   private
