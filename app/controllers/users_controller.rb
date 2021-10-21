@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
     if @user == current_user
       render :edit
     else 
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    
     if @user.update(user_params)
     redirect_to user_path(@user.id), notice: 'You have updated user successfully.'
   
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
   
   def correct_user
      user = User.find(params[:id])
+     
      if current_user != user
        redirect_to root_path
      end
