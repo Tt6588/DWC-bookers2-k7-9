@@ -44,8 +44,21 @@
                 <td>
                   <%= link_to "Destroy", book_path(@book.id), "data-confirm" => "本当に消しますか？", method: :delete, class:"btn btn-sm btn-danger" %>
                 </td>
+                <td>comennt_count</td>
               <% end %>
             </tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-hover table-inverse">
+          <tbody>
+            <tr>comment_index</tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-hover table-inverse">
+          <tbody>
+            <tr>comment_form</tr>
           </tbody>
         </table>
       </div>
