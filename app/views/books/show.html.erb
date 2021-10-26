@@ -11,11 +11,11 @@
           <tbody>
             <tr>
               <td>
-                  <%= link_to user_path(@book.user.id) do %>
-                    <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
-                    <br><%= @book.user.name %>
-                  <% end %>
-                </td>
+                <%= link_to user_path(@book.user.id) do %>
+                  <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
+                  <br><%= @book.user.name %>
+                <% end %>
+              </td>
               <td>
                 <%= link_to book_path(@book.id) do %>
                   <%= @book.title %>
@@ -52,14 +52,24 @@
         
         <table class="table table-hover table-inverse">
           <tbody>
-            <tr>comment_index</tr>
+            <% @book.book_comments.each do |book_comment| %>
+              <tr>
+                <td>
+                  <%= attachment_image_tag @book_comment_user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image2.jpg" %>
+                  <br><%= @book_comment_user.name %>
+                </td>
+                <td><%= @book_comment.comment %></td>
+                <td>destroy</td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         
         <table class="table table-hover table-inverse">
-          <tbody>
-            <tr>comment_form</tr>
-          </tbody>
+          <%= form_with model:[@book, @book_comment], local: true do |f| %>
+            <%= f.text_area :comment, rows:'5' %><br>
+            <%= f.submit "送信" %>
+          <% end %>
         </table>
       </div>
     </div>
