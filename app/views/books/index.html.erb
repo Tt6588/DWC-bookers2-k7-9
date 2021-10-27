@@ -19,7 +19,7 @@
               <tr>
                 <td>
                   <%= link_to user_path(book.user.id) do %>
-                    <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
+                    <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image2.jpg" %>
                   <% end %>
                 </td>
                 <td>
@@ -44,7 +44,7 @@
                       </p>
                     <% end %>
                   </td>
-                  <td>comennt_count</td>
+                  <td><%= "コメント数: #{book.book_comments.count}" %></td>
 
               </tr>
             <% end %>
