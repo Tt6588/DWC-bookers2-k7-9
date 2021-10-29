@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     get 'followers' => 'relation_ships#followers'
   end
   
+  get '/followers' => 'relation_ships#show'
+  get '/followings' => 'relation_ships#show'
+  
   
 end
