@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update,] do
     # ↓フォロー・フォロワー機能
     resource :relation_ships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings'
+    get 'followings' => 'relation_ships#followings'
     get 'followers' => 'relation_ships#followers'
   end
   
