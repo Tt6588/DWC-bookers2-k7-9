@@ -8,6 +8,15 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
+  
+  has_many :reverse_of_relation_ships, class: "RelationShip", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  # 被フォロー関係を通じて参照→followed_idをフォローしている人
+  
+  has_many :relation_ships, class: "RelationShip", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
+  # 与フォロー関係を通じて参照→follower_idをフォローしている人
+  
   attachment :profile_image
   
   
