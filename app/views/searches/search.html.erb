@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
+        
       <% if @model == 'user' %>
         <h3>Users search for "<%= @content %>"</h3>
         <table class="table table-hover table-inverse">
@@ -25,31 +26,32 @@
       <% else @model == 'book' %>
         <h3>Books search for "<%= @content %>"</h3>
         <table class="table table-hover table-inverse">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Opinion</th>
-                </tr>
-            </thead>
-            <tbody id="post">
-            <% @records.each do |book| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(book.user.id) do %>
-                    <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image2.jpg" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to book_path(book.id) do %>
-                    <%= book.title %>
-                  <% end %>
-                </td>
-                <td><%= book.body %></td>
-              </tr>
-            <% end %>
-            </tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thead>
+          <tbody id="post">
+          <% @records.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user.id) do %>
+                  <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image2.jpg" %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
       <% end %>
+      
       </div>
     </div>
   </div>
