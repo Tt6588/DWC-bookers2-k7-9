@@ -25,16 +25,18 @@
         <th><%= user.introduction %></th>
       </tr>
       <tr>
+        <th>Follow</th>
         <th>
           <%= link_to user_followings_path(user.id) do %>
-            フォロー数: <%= user.followings.count %>
+            <%= user.followings.count %>
           <% end %>
         </th>
       </tr>
       <tr>
+        <th>Followers</th>
         <th>
           <%= link_to user_followers_path(user.id) do %>
-            フォロワー数: <%= user.followers.count %>
+            <%= user.followers.count %>
           <% end %>
         </th>
       </tr>
