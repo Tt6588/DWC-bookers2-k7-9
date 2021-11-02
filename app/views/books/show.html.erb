@@ -22,7 +22,9 @@
               </td>
               <td><%= @book.body %></td>
               
-              <%= render '/favorites/favorite', book: @book %>
+              <td id="favorite_buttons_<%= @book.id %>">
+                <%= render '/favorites/favorite', book: @book %>
+              </td>
               
               <% if @book.user == current_user %>
                 <td><%= link_to "Edit", edit_book_path, class:"btn btn-sm btn-success" %></td>
