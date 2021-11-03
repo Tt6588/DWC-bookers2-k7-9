@@ -31,22 +31,22 @@
                 <td>
                   <%= link_to "Destroy", book_path(@book.id), "data-confirm" => "本当に消しますか？", method: :delete, class:"btn btn-sm btn-danger" %>
                 </td>
-                <td><%= "コメント数: #{@book.book_comments.count}" %></td>
               <% end %>
+              <td><%= "コメント数: #{@book.book_comments.count}" %></td>
             </tr>
           </tbody>
         </table>
 
         <table id="book_comment_btn_<%= @book.id %>">
-          <%= render '/book_comments/book_comment', book: @book, book_comment: @book_comment %>
+          <%= render '/book_comments/book_comment', book: @book %>
         </table>
 
-        <table class="table table-hover table-inverse">
+        <div class="table table-hover table-inverse">
           <%= form_with model:[@book, @book_comment], remote: true do |f| %>
             <%= f.text_area :comment, size:'90x5', class:"text_area" %><br>
             <%= f.submit "送信" %>
           <% end %>
-        </table>
+        </div>
       </div>
     </div>
   </div>
