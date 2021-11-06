@@ -33,10 +33,13 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
+    
     @today_book = @books.created_today
     @yesterday_book = @books.created_yesterday
+    
     @toweek_book = @books.created_toweek
     @lastweek_book = @books.created_lastweek
+    
     @day2_book = @books.created_day2
     @day3_book = @books.created_day3
     @day4_book = @books.created_day4
