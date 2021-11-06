@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @toweek_book = @books.created_toweek
     @lastweek_book = @books.created_lastweek
+    @day2_book = @books.created_day2
+    @day3_book = @books.created_day3
+    @day4_book = @books.created_day4
+    @day5_book = @books.created_day5
+    @day6_book = @books.created_day6
   end
 
   private
