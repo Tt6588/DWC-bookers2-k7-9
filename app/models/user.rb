@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人(一覧表示に使用)
   
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  # DM機能
+  
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end

@@ -22,7 +22,12 @@ Rails.application.routes.draw do
     get 'followers' => 'relation_ships#followers'
   end
   
+   # ↓検索機能
   get '/search', to:'searches#search'
+  
+   # ↓DM機能
+  get 'chats/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
   
   
 end
