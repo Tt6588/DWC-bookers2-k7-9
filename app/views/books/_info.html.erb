@@ -45,10 +45,11 @@
         <td>
           <% if current_user.following?(user) %>
             <%= link_to "フォローを外す", user_relation_ships_path(user.id), method: :delete, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
-            <% if current_user != user %>
-              <5
-              <%= link_to 'Begin Chat', chat_path(user.id) %>
-            <% end %> 
+              <% if user.following?(current_user) %>
+                <td>
+                  <%= link_to 'Chatする', chat_path(user.id) %>
+                
+              <% end %>
           <% else %>
             <%= link_to "フォローする", user_relation_ships_path(user.id), method: :post, class:"btn btn-success btn-sm btn-block sign_up" %>
           <% end %>
