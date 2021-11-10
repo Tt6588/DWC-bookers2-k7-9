@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   has_many :book_comments, dependent: :destroy
 
   is_impressionable
+  # ↑pv計測
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

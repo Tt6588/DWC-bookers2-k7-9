@@ -28,13 +28,14 @@ class BooksController < ApplicationController
 
 
   impressionist :actions=> [:show]
+  # ↑pv計測
 
   def show
     @book = Book.find(params[:id])
     @book_new = Book.new
     @user = @book.user
     @book_comment = BookComment.new
-    impressionist(@book, nil)
+    impressionist(@book, nil) #pv計測
   end
 
   def edit
